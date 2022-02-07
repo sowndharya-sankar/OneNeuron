@@ -8,13 +8,26 @@ plt.style.use("fivethirtyeight")
 
 
 def prepare_data(df):
-    X = df.drop("y", axis=1)
+  """
+  Description: seperates ans returns independent features and target
 
-    y = df["y"]
+  Args: dataframe - df
 
-    return X, y
+  Returns: It returns tuples of dependent and independent variables
+
+  """
+  X = df.drop("y", axis=1)
+
+  y = df["y"]
+
+  return X, y
 
 def save_model(model, filename):
+  """
+  :param model: trained and model
+  :param filename: and.model
+  :return: dumps model to the file
+  """
   model_dir = "models"
   os.makedirs(model_dir, exist_ok=True) # ONLY CREATE IF MODEL_DIR DOESN"T EXISTS
   filePath = os.path.join(model_dir, filename) # model/filename
